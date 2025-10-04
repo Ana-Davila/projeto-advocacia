@@ -1,0 +1,400 @@
+@charset "UTF-8";
+
+/* ================================================= */
+/* CONFIGURAÇÕES GERAIS                  */
+/* ================================================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-color: lightgray;
+}
+
+/* ================================================= */
+/* HEADER E NAVEGAÇÃO                    */
+/* ================================================= */
+header{
+    background-color: #000000;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Empurra o conteúdo restante para a direita */
+}
+
+/* Esconder o botão Hambúrguer em telas grandes */
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Estilo do ícone hambúrguer (três linhas) */
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #BF9A2C;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+}
+
+.hamburger-icon::before {
+    transform: translateY(-8px);
+}
+
+.hamburger-icon::after {
+    transform: translateY(8px);
+}
+
+/* Estilo para quando o menu está aberto - transforma o hambúrguer em 'X' */
+.menu-open .hamburger-icon {
+    transform: rotate(45deg);
+    background-color: white; /* Cor da linha central */
+}
+.menu-open .hamburger-icon::before {
+    transform: rotate(90deg) translate(-8px, 0);
+}
+.menu-open .hamburger-icon::after {
+    transform: rotate(90deg) translate(8px, 0);
+}
+.menu-open .hamburger-icon,
+.menu-open .hamburger-icon::before,
+.menu-open .hamburger-icon::after {
+    background-color: white; /* Cor do X */
+}
+
+/* Estilo para o estado 'aberto' do menu mobile */
+.menu-links.active {
+    display: flex;
+}
+#menu{
+
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+    position: fixed;
+    z-index: 10; 
+}
+#imagem01{
+    width: 80px;
+    margin-right: 15px;
+}
+#dktitulo{
+    color:#BF9A2C;
+    margin-right: auto;
+    font-size: 1.5em;
+}
+.botaomenu{
+    cursor: pointer;
+    text-decoration: none;
+    color: aliceblue;
+    padding: 8px 15px;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+a:hover{
+    background-color: rgb(163, 135, 35);
+    transform: translateY(-2px); 
+}
+
+/* ================================================= */
+/* CONTEÚDO PRINCIPAL                 */
+/* ================================================= */
+main{
+    max-width: 1000px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+#principal{
+    padding: 20px;
+    padding-top: 120px; 
+}
+
+.h1{
+    margin-top: 20px;
+    color: black;
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+#principal h1{
+    margin-bottom: 30px;
+}
+
+/* --- SOBRE NÓS --- */
+.imagemadv{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.sobreadv{
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: justify;
+    padding: 0 15px;
+}
+.advogado-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.advogado-info img{
+    flex: 0 0 300px;
+    max-width: 100%;
+    margin-right: 30px;
+    object-fit: cover;
+    height: 350px;
+}
+.advogado-info p{
+    flex: 1;
+    min-width: 300px;
+}
+.advogado-info:nth-child(even) img {
+    order: 2;
+    margin-right: 0;
+    margin-left: 30px;
+}
+.advogado-info:nth-child(even) p {
+    order: 1;
+}
+
+/* --- ÁREAS DE ATUAÇÃO (SWIPER) --- */
+#atuacao {
+    max-width: 950px;
+    margin: 30px auto; 
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 30px 0;
+}
+.swiper {
+    width: 90%; 
+    height: 350px; 
+    margin: 0 auto;
+}
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.swiper-slide h2 {
+    color: #000000;
+    margin-bottom: 10px;
+}
+.imagens{
+    /* max-width e max-height para manter a proporção */
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    width: auto;
+    border-radius: 4px;
+}
+.lista-inventario {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.lista-inventario li {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* --- ENDEREÇOS E MAPAS --- */
+#enderecos{
+    max-width: 950px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px 20px;
+}
+.map-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    gap: 30px;
+    padding-top: 20px;
+}
+.map-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Ajuste para permitir que o item ocupe a largura total em mobile */
+    flex: 1 1 400px; 
+    max-width: 100%;
+}
+.map-item iframe {
+    width: 100%;
+    height: 300px;
+    border: 0; /* Aplicando o estilo do iframe aqui */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.rua{
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ================================================= */
+/* FOOTER E WHATSAPP                */
+/* ================================================= */
+footer{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+footer a {
+    margin: 0 10px;
+    display: inline-block;
+}
+/* Estilo para o ícone flutuante do WhatsApp */
+.whatsapp-link{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 1px 1px 2px #888;
+    z-index: 1000;
+}
+.fa-whatsapp{
+    margin-top: 15px;
+}
+
+/* ================================================= */
+/* RESPONSIVIDADE (media queries)           */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* --- MENU --- */
+    #menu {
+        height: auto;
+        padding: 15px 10px;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+    }
+    .logo-container {
+        margin-right: 0; 
+    }
+    #dktitulo {
+        font-size: 1.2em; 
+        padding-bottom: 0;
+    }
+    #imagem01 {
+        margin-bottom:0;
+    }
+    #menu-toggle {
+        display: block; 
+    }
+    .menu-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .botaomenu {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0; 
+        padding: 12px 15px;
+    }
+
+    /* --- GERAL/PRINCIPAL --- */
+    main {
+        min-width: unset; 
+    }
+    #principal {
+        padding-top: 105px; 
+    }
+
+    /* --- SOBRE NÓS --- */
+    .advogado-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    .advogado-info img {
+        margin: 0 auto 20px auto; 
+        min-width: 60%;
+        max-width: 80%;
+    }
+    .advogado-info p {
+        padding: 0 10px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    /* Reseta a ordem para o layout empilhado */
+    .advogado-info:nth-child(even) img,
+    .advogado-info:nth-child(even) p {
+        order: unset; 
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* --- ÁREAS DE ATUAÇÃO --- */
+    .swiper {
+        width: 100%;
+        height: 300px;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+    }
+
+    /* --- ENDEREÇOS E MAPAS --- */
+    .map-container {
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+    }
+    .map-item {
+        flex: 1 1 100%;
+    }
+    .map-item iframe {
+        height: 250px; 
+    }
+    .whatsapp-link {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+    .fa-whatsapp {
+        margin-top: 13px;
+    }
+}
